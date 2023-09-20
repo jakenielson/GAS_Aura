@@ -9,6 +9,7 @@
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
+class IHighlightInterface;
 
 /**
  * 
@@ -21,6 +22,7 @@ public:
 	AAuraPlayerController();
 protected:
 	virtual void BeginPlay() override;
+	virtual void PlayerTick(float DeltaTime) override;
 	virtual void SetupInputComponent() override;
 private:
 	UPROPERTY(EditAnywhere, Category = "Input")
@@ -29,4 +31,8 @@ private:
 	TObjectPtr<UInputAction> MoveAction;
 
 	void Move(const FInputActionValue& InputActionValue);
+	
+	void CursorTrace();
+	IHighlightInterface* LastHighlightedActor;
+	IHighlightInterface* HighlightedActor;
 };
