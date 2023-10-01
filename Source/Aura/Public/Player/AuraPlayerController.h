@@ -33,6 +33,6 @@ private:
 	void Move(const FInputActionValue& InputActionValue);
 	
 	void CursorTrace();
-	IHighlightInterface* LastHighlightedActor;
-	IHighlightInterface* HighlightedActor;
+	TObjectPtr<IHighlightInterface> LastHighlightedActor;
+	TObjectPtr<IHighlightInterface> HighlightedActor;
 };
